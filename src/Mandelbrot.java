@@ -1,7 +1,7 @@
 import java.util.Vector;
 
-public class Mandelbrot {
-    {
+public class Mandelbrot
+{
         public static Boolean found( Vector< ImgNum > data, ImgNum test)
         {
             Boolean ret = false;
