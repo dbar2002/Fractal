@@ -79,7 +79,7 @@ public class Mandelbrot
             ImgNum ret = new ImgNum();
 
             ret.x = x * A.x - y * A.y;
-            ret.y = y * A.y + x * A.x;
+            ret.y = x * A.y + y * A.x;
 
             return ret;
         }
