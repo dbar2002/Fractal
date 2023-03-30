@@ -19,9 +19,9 @@ public class Mandelbrot
         {
             Integer ret = 0;
 
-            Vector<ImgNum> PrevZ = new Vector<ImgNum>();
-            IngNum zCurrent = new IngNun(0.0, 0.0);
-            ImgNum c = new Imgun( cx, cy );
+            Vector<ImgNum> prevZ = new Vector<ImgNum>();
+            ImgNum zCurrent = new ImgNum(0.0, 0.0);
+            ImgNum c = new ImgNum( cx, cy );
 
             Integer steps = 0;
 
@@ -56,4 +56,57 @@ public class Mandelbrot
             }
         }
     }
-}
+
+    class ImgNum
+    {
+        public ImgNum()
+        {
+            x = 0.0;
+            y = 0.0;
+        }
+
+        public ImgNum(Double inputx, Double inputy)
+        {
+            x = inputx;
+            y = inputy;
+        }
+        public ImgNum iMult(ImgNum A)
+        {
+            // (x + y i)(A.× + A.y i)
+            // x A.x + (X A.y + y A.x)i - y A.y
+            // x A.x - y A.y + (x A.y + y A.x)i
+
+            ImgNum ret = new ImgNum();
+
+            ret.x = x * A.x - y * A.y;
+            ret.y = y * A.y + x * A.x;
+
+            return ret;
+        }
+
+        public ImgNum iAdd(ImgNum A) {
+
+            ImgNum ret = new ImgNum();
+
+            ret.x = x + A.x;
+            ret.y = y + A.y;
+
+            return ret;
+        }
+
+        public Boolean iEq(ImgNum A)
+        {
+            if(x.equals(A.x) && y.equals(A.y))
+                return true;
+            return false;
+        }
+
+        public void iPrint()
+        {
+            System.out.println(x + " + " + y + "i");
+        }
+
+        Double x;
+        Double y;
+
+    }
