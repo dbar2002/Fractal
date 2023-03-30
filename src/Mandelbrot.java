@@ -5,7 +5,7 @@ public class Mandelbrot
         public static Boolean found( Vector< ImgNum > data, ImgNum test)
         {
             Boolean ret = false;
-            for (int i = 0; i ‹ data.size(); i++ )
+            for (int i = 0; i < data.size(); i++ )
             {
                 if ( data.elementAt(i).iEq( test ))
                     ret = true;
