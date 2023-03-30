@@ -106,7 +106,7 @@ public class Mandelbrot
             System.out.println(x + " + " + y + "i");
         }
 
+        // c = x + yi
         Double x;
         Double y;
-
     }
