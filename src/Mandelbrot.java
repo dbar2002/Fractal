@@ -49,18 +49,23 @@ public class Mandelbrot
     {
         int width = 800;
         int height = 800;
+
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+        Color setColor = Color.LIGHT_GRAY; // Set the color for the Mandelbrot set
+        Color bgColor = Color.BLACK; // Set the color for the background
+        
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
                 double cx = (j - width / 2.0) * 4.0 / width;
                 double cy = (i - height / 2.0) * 4.0 / width;
                 Integer steps = Mandelbrot(30, cx, cy);
                 if (steps.equals(0))
-                    image.setRGB(j, i, Color.BLACK.getRGB());
+                    image.setRGB(j, i, bgColor.getRGB());
                 else
-                    image.setRGB(j, i, Color.PINK.getRGB());
+                    image.setRGB(j, i, setColor.getRGB());
             }
         }
+
         File outputFile = new File("mandelbrot.png");
         ImageIO.write(image, "png", outputFile);
     }
