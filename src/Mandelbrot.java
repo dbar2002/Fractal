@@ -45,20 +45,27 @@ public class Mandelbrot
         return ret;
     }
 
-    public static void main(String[] args) throws IOException
-    {
+    public static void main(String[] args) throws IOException {
         int width = 800;
         int height = 800;
 
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
-        Color setColor = Color.YELLOW; // Set the color for the Mandelbrot set
-        Color bgColor = Color.BLUE; // Set the color for the background
-        
+        Color setColor = Color.BLACK; // Set the color for the Mandelbrot set
+        Color bgColor = Color.WHITE; // Set the color for the background
+
+        double xmin = -2.0;
+        double xmax = 2.0;
+        double ymin = -2.0;
+        double ymax = 2.0;
+
+        double dx = (xmax - xmin) / (double) width;
+        double dy = (ymax - ymin) / (double) height;
+
         for (int i = 0; i < height; i++) {
+            double y = ymin + i * dy;
             for (int j = 0; j < width; j++) {
-                double cx = (j - width / 2.0) * 4.0 / width;
-                double cy = (i - height / 2.0) * 4.0 / width;
-                Integer steps = Mandelbrot(30, cx, cy);
+                double x = xmin + j * dx;
+                Integer steps = Mandelbrot(30, x, y);
                 if (steps.equals(0))
                     image.setRGB(j, i, bgColor.getRGB());
                 else
