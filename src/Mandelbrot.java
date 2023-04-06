@@ -45,7 +45,8 @@ public class Mandelbrot
         return ret;
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException
+    {
         int width = 800;
         int height = 800;
 
@@ -61,9 +62,11 @@ public class Mandelbrot
         double dx = (xmax - xmin) / (double) width;
         double dy = (ymax - ymin) / (double) height;
 
-        for (int i = 0; i < height; i++) {
+        for (int i = 0; i < height; i++)
+        {
             double y = ymin + i * dy;
-            for (int j = 0; j < width; j++) {
+            for (int j = 0; j < width; j++)
+            {
                 double x = xmin + j * dx;
                 Integer steps = Mandelbrot(30, x, y);
                 if (steps.equals(0))
