@@ -51,8 +51,8 @@ public class Mandelbrot
         int height = 800;
 
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
-        Color setColor = Color.BLACK; // Set the color for the Mandelbrot set
-        Color bgColor = Color.WHITE; // Set the color for the background
+        Color setColor = Color.BLACK; // Color for the Mandelbrot
+        Color bgColor = Color.WHITE; // Color for the background
 
         double xmin = -2.0;
         double xmax = 2.0;
